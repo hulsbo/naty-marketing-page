@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naty - Contorsion Artist</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Layout Shell -->
+    <header class="site-header">
+        <div class="container">
+            <!-- Header content will go here (nav, logo, etc.) -->
+        </div>
+    </header>
+
+    <aside class="social-rail" aria-label="Social media links">
+        <a class="social-rail__link js-config-link" data-link-key="instagram" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img class="social-icon" src="graphics/social/instagram-svgrepo-com.svg" alt="">
+        </a>
+        <a class="social-rail__link js-config-link" data-link-key="facebook" href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <img class="social-icon" src="graphics/social/facebook-svgrepo-com.svg" alt="">
+        </a>
+    </aside>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section reveal">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <img src="graphics/naty-logo.png" alt="Naty Logo" class="hero-logo">
+				<h2 class="section-title text-center">Contorsion Artist</h2>
+                <a href="#contact" class="btn-primary">Book the Act</a>
+            </div>
+        </section>
+        
+        <!-- Biography Section -->
+        <section id="bio" class="bio-section reveal">
+            <div class="container bio-container">
+                <div class="bio-image-wrapper">
+                    <img src="graphics/images/IMG_4779.JPG" alt="Naty Portrait" class="bio-image" loading="lazy" decoding="async">
+                </div>
+                <div class="bio-content">
+                    <h2 class="section-title">The Art of Contorsion</h2>
+                    <p class="bio-text">
+                        Naty is a world-renowned contorsion artist whose performances blend extreme flexibility with elegant control. With a background in classical circus theatre, she brings an unforgettable presence to the stage, captivating audiences with her dramatic storytelling and gravity-defying grace. Her work is a testament to the beauty of the human form pushed to its absolute limits.
+                    </p>
+                    <a href="https://example.com/naty-cv.pdf" class="btn-secondary js-config-link" data-link-key="cv" target="_blank" rel="noopener noreferrer">See My CV</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promo Videos Section -->
+        <section id="videos" class="videos-section reveal">
+            <div class="container">
+                <h2 class="section-title text-center">On Stage</h2>
+                <div class="video-grid">
+                    <article class="video-card" data-video-src="https://youtu.be/KFkTa-zrG8o?si=9HC3gnqWLzWN0GJc">
+                        <video class="preview-video" muted loop playsinline preload="none" poster="graphics/images/89c2971a-4387-4bfc-b41d-acfc6f7b5220.JPG">
+                        </video>
+                        <div class="play-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </article>
+                    <article class="video-card" data-video-src="https://youtu.be/4JVsCtcA3yA?si=ymXpmv03nRsO5IFs">
+                        <video class="preview-video" muted loop playsinline preload="none" poster="graphics/images/8C6CFFC6-66D2-4932-BCA9-E66FE70BB46B.JPG">
+                        </video>
+                        <div class="play-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </article>
+                    <article class="video-card" data-video-src="https://www.youtube.com/watch?si=nz0wSbJZLEXMOBuD&amp;v=0nate7etTJE&amp;feature=youtu.be">
+                        <video class="preview-video" muted loop playsinline preload="none" poster="graphics/images/a74c942f-52ac-4205-9049-ddb4db52cad7.JPG">
+                        </video>
+                        <div class="play-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section reveal">
+            <div class="contact-section__backdrop" aria-hidden="true"></div>
+            <div class="container contact-section__content">
+                <h2 class="section-title text-center">Let&apos;s Create Something Unforgettable</h2>
+                <p class="contact-lead">
+                    Available for theatre productions, premium events, private showcases, and creative collaborations worldwide.
+                </p>
+                <a href="mailto:booking@natycontorsion.com" class="btn-primary js-config-link contact-cta" data-link-key="contactEmail">Contact Me</a>
+            </div>
+        </section>
+    </main>
+
+    <div class="video-modal" id="video-modal" aria-hidden="true">
+        <div class="video-modal__dialog" role="dialog" aria-modal="true" aria-label="Performance video">
+            <button class="video-modal__close" id="video-modal-close" type="button" aria-label="Close video modal">×</button>
+            <iframe
+                id="modal-video-player"
+                class="video-modal__player"
+                title="Performance video"
+                src=""
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+        </div>
+    </div>
+
+    <!-- Footer Layout Shell -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-socials">
+                <a class="footer-social js-config-link" data-link-key="instagram" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <img class="social-icon" src="graphics/social/instagram-svgrepo-com.svg" alt="">
+                    <span class="sr-only">Instagram</span>
+                </a>
+                <a class="footer-social js-config-link" data-link-key="facebook" href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <img class="social-icon" src="graphics/social/facebook-svgrepo-com.svg" alt="">
+                    <span class="sr-only">Facebook</span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="https://example.com/blog" class="footer-link js-config-link" data-link-key="blog" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="#hero" class="footer-link">Back to Top</a>
+            </div>
+            <p class="copyright">&copy; 2026 Naty Contorsion Artist. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
