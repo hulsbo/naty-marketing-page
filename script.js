@@ -131,6 +131,24 @@ function setupSmoothAnchorScroll() {
 }
 
 function setupRevealAnimations() {
+    const revealTargets = [
+        ".bio-collage",
+        ".bio-content",
+        ".video-card",
+        ".contact-section__content",
+        ".footer-content"
+    ];
+    revealTargets.forEach((selector) => {
+        document.querySelectorAll(selector).forEach((el, index) => {
+            if (!el.classList.contains("reveal")) {
+                el.classList.add("reveal");
+            }
+            if (selector === ".video-card") {
+                el.style.transitionDelay = `${index * 90}ms`;
+            }
+        });
+    });
+
     const revealEls = document.querySelectorAll(".reveal");
     if (!revealEls.length) return;
     const observer = new IntersectionObserver((entries, currentObserver) => {
@@ -140,8 +158,8 @@ function setupRevealAnimations() {
             currentObserver.unobserve(entry.target);
         });
     }, {
-        threshold: 0.16,
-        rootMargin: "0px 0px -5% 0px"
+        threshold: 0.12,
+        rootMargin: "0px 0px -8% 0px"
     });
     revealEls.forEach((section) => observer.observe(section));
 }
