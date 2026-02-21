@@ -1,9 +1,13 @@
 const LINK_CONFIG = {
-    cv: "https://example.com/naty-cv.pdf",
+    cv: "https://drive.google.com/file/d/1V_xaL_aGLBFeLxx6xte5O7x9fy-LKlm4/view?usp=drivesdk",
     blog: "/blog/",
-    instagram: "https://instagram.com/",
-    facebook: "https://facebook.com/",
-    contactEmail: "mailto:booking@natycontorsion.com"
+    instagram: "https://www.instagram.com/naty_contorsion/",
+};
+
+const EMAIL_OBFUSCATION = {
+    utfOffset: 7,
+    encodedChars: [106, 113, 118, 108, 118, 106, 123, 129, 73, 111, 119, 125, 116, 105, 114, 115, 54, 108, 118, 117],
+    expectedHash: "9ed436fa"
 };
 
 const videoCards = Array.from(document.querySelectorAll(".video-card"));
@@ -19,6 +23,32 @@ function wireConfiguredLinks() {
         const mappedUrl = LINK_CONFIG[key];
         if (!mappedUrl) return;
         link.href = mappedUrl;
+    });
+}
+
+function hashString(input) {
+    let hash = 5381;
+    for (const char of input) {
+        hash = ((hash << 5) + hash + char.charCodeAt(0)) >>> 0;
+    }
+    return hash.toString(16);
+}
+
+function decodeEmailAddress() {
+    return EMAIL_OBFUSCATION.encodedChars
+        .map((code, index) => String.fromCharCode(code - EMAIL_OBFUSCATION.utfOffset - (index % 3)))
+        .join("");
+}
+
+function wireObfuscatedEmail() {
+    const contactLinks = document.querySelectorAll('[data-link-key="contactEmail"]');
+    if (!contactLinks.length) return;
+
+    const decodedEmail = decodeEmailAddress();
+    if (hashString(decodedEmail) !== EMAIL_OBFUSCATION.expectedHash) return;
+
+    contactLinks.forEach((link) => {
+        link.href = `mailto:${decodedEmail}`;
     });
 }
 
@@ -169,6 +199,7 @@ function setupRevealAnimations() {
 }
 
 wireConfiguredLinks();
+wireObfuscatedEmail();
 setupVideoCards();
 setupModalCloseBehavior();
 setupSmoothAnchorScroll();
