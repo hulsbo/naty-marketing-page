@@ -1,6 +1,6 @@
 const LINK_CONFIG = {
     cv: "https://example.com/naty-cv.pdf",
-    blog: "https://example.com/blog",
+    blog: "/blog/",
     instagram: "https://instagram.com/",
     facebook: "https://facebook.com/",
     contactEmail: "mailto:booking@natycontorsion.com"

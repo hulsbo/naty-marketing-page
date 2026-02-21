@@ -1,0 +1,9 @@
+{
+  "name": "naty-marketing-page",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build:blog": "node scripts/build-blog.mjs"
+  }
+}

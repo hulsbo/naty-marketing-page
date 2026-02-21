@@ -1,0 +1,53 @@
+name: Build Blog From Sanity
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+  repository_dispatch:
+    types:
+      - sanity-content-updated
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-blog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build static blog pages
+        env:
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          SANITY_API_VERSION: ${{ secrets.SANITY_API_VERSION }}
+          SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
+          BLOG_BASE_URL: ${{ secrets.BLOG_BASE_URL }}
+        run: node scripts/build-blog.mjs
+
+      - name: Commit generated blog files if changed
+        run: |
+          if [ -n "$(git status --porcelain blog/)" ]; then
+            git add blog/
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "chore: regenerate blog pages from Sanity"
+            git push
+          else
+            echo "No blog changes to commit."
+          fi
