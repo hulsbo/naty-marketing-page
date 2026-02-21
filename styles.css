@@ -38,6 +38,7 @@ a {
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* Header Shell */
@@ -53,7 +54,7 @@ a {
 /* Footer Shell */
 .site-footer {
     background-color: #000;
-    border-top: 1px solid var(--color-deep-red);
+    border-top: none;
     padding: 40px 0;
     text-align: center;
 }
@@ -128,6 +129,7 @@ a {
 .hero-section {
     position: relative;
     height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,8 +145,8 @@ a {
     width: 100%;
     height: 100%;
     background-image: url('graphics/images/IMG_3842.jpeg');
-    background-size: 100% auto;
-    background-position: center top;
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
     z-index: 1;
 }
@@ -176,8 +178,8 @@ a {
 }
 
 .hero-logo {
-    max-width: 450px;
-    width: 100%;
+    width: clamp(180px, 34vw, 450px);
+    max-width: 100%;
     margin-bottom: 2px;
     filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.3)); /* Gold shadow */
 }
@@ -353,37 +355,6 @@ a {
     transform: scale(1.04);
 }
 
-.bio-collage__item::before,
-.bio-collage__item::after,
-.video-card::before,
-.video-card::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    width: 78%;
-    height: 20px;
-    transform: translateX(-50%);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    pointer-events: none;
-    z-index: 4;
-    mix-blend-mode: screen;
-    opacity: 0.9;
-}
-
-.bio-collage__item::before,
-.video-card::before {
-    top: 8px;
-    background-image: url('graphics/sprite-2.png');
-}
-
-.bio-collage__item::after,
-.video-card::after {
-    bottom: 8px;
-    background-image: url('graphics/sprite-1.png');
-}
-
 .bio-collage__item--a {
     grid-column: 1 / 8;
     grid-row: 1 / 7;
@@ -452,7 +423,8 @@ a {
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 360px));
+    justify-content: center;
     gap: 30px;
     margin-top: 50px;
 }
@@ -580,7 +552,7 @@ a {
 .contact-section__backdrop {
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.85)), url('graphics/images/IMG_7721.jpg');
+    background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.85)), url('graphics/images/balette-flower.JPG');
     background-size: cover;
     background-position: center;
     transform: scale(1.03);
@@ -640,7 +612,7 @@ a {
         font-size: 1.45rem;
     }
     .hero-logo {
-        max-width: 500px;
+        width: clamp(120px, 42vw, 220px);
     }
     .btn-primary {
         padding: 12px 30px;
@@ -704,12 +676,16 @@ a {
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+
     .hero-content {
         margin-top: -10vh;
     }
 
     .hero-logo {
-        max-width: 360px;
+        width: clamp(96px, 46vw, 170px);
     }
 
     .section-divider {

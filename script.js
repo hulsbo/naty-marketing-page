@@ -91,6 +91,10 @@ function setupVideoCards() {
             card.classList.remove("playing");
         });
         card.addEventListener("click", () => {
+            if (isYouTubeVideo) {
+                window.open(source, "_blank", "noopener,noreferrer");
+                return;
+            }
             pauseAllPreviews();
             openModal(source);
         });
