@@ -23,10 +23,16 @@ body {
     color: var(--color-white);
     line-height: 1.6;
     overflow-x: hidden;
+    overscroll-behavior-y: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 html {
     scroll-behavior: smooth;
+    overscroll-behavior-y: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 a {
