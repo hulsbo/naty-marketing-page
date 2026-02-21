@@ -92,6 +92,21 @@ a {
     opacity: 1;
 }
 
+.footer-social--cv {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 0.8px;
+}
+
+.footer-social-cv-text {
+    color: var(--color-gold);
+    line-height: 1;
+}
+
+.footer-social--cv:hover .footer-social-cv-text {
+    color: var(--color-black);
+}
+
 .footer-link {
     color: var(--color-gold);
     font-family: var(--font-heading);
@@ -404,6 +419,21 @@ a {
     color: var(--color-black);
     background-color: var(--color-gold);
     transform: translateY(-2px);
+}
+
+.bio-social-link--cv {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 0.8px;
+}
+
+.bio-social-cv-text {
+    color: var(--color-gold);
+    line-height: 1;
+}
+
+.bio-social-link--cv:hover .bio-social-cv-text {
+    color: var(--color-black);
 }
 
 .bio-text {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naty - Contorsion Artist</title>
+    <title id="page-title" data-i18n="meta.title">Naty - Contorsion Artist</title>
     <link rel="icon" type="image/x-icon" href="graphics/icon-nc.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,8 +24,8 @@
             <div class="hero-background"></div>
             <div class="hero-content">
                 <img src="graphics/naty-czime-logo.png" alt="Naty Logo" class="hero-logo">
-				<h2 class="section-title text-center">Contorsion Artist</h2>
-                <a href="#contact" class="btn-primary">Book the Act</a>
+				<h2 class="section-title text-center" data-i18n="hero.subtitle">Contorsion Artist</h2>
+                <a href="#contact" class="btn-primary" data-i18n="hero.cta">Book the Act</a>
             </div>
         </section>
         
@@ -33,35 +33,37 @@
         <section id="bio" class="bio-section reveal">
             <div class="container bio-container">
                 <div class="bio-content">
-                    <h2 class="section-title">The Art of Contorsion</h2>
-                    <p class="bio-text">
+                    <h2 class="section-title" data-i18n="bio.title">The Art of Contorsion</h2>
+                    <p class="bio-text" data-i18n="bio.body">
                         Naty is a professional contorsionist based in Cancun, Mexico, known for elegant flexibility and commanding stage presence. She has developed her unique style that blends circus with aesthetics from her extensive background as a contemporary and balette dancer. Her work is a testament to the beauty of the human form pushed to its absolute limits.
                     </p>
-                    <a href="https://example.com/naty-cv.pdf" class="btn-secondary js-config-link" data-link-key="cv" target="_blank" rel="noopener noreferrer">See My CV</a>
-                    <div class="bio-socials" aria-label="Social media links">
-                        <a class="bio-social-link js-config-link" data-link-key="instagram" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <div class="bio-socials" aria-label="Social media links" data-i18n="bio.socialAria" data-i18n-attr="aria-label">
+                        <a class="bio-social-link js-config-link" data-link-key="instagram" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-i18n="social.instagram" data-i18n-attr="aria-label">
                             <img class="social-icon" src="graphics/social/instagram-svgrepo-com.svg" alt="">
                         </a>
-                        <a class="bio-social-link js-config-link" data-link-key="facebook" href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <img class="social-icon" src="graphics/social/facebook-svgrepo-com.svg" alt="">
+                        <a class="bio-social-link js-config-link" data-link-key="youtube" href="https://youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <img class="social-icon" src="graphics/social/youtube.svg" alt="">
+                        </a>
+                        <a class="bio-social-link bio-social-link--cv js-config-link" data-link-key="cv" href="https://example.com/naty-cv.pdf" target="_blank" rel="noopener noreferrer" aria-label="CV">
+                            <span class="bio-social-cv-text">CV</span>
                         </a>
                     </div>
                 </div>
                 <div class="bio-collage" aria-label="Performance image collage">
                     <figure class="bio-collage__item bio-collage__item--a">
-                        <img src="graphics/images/IMG_4779.JPG" alt="Naty portrait" loading="lazy" decoding="async">
+                        <img src="graphics/images/IMG_4779.JPG" alt="Naty portrait" loading="lazy" decoding="async" data-i18n="images.portrait" data-i18n-attr="alt">
                     </figure>
                     <figure class="bio-collage__item bio-collage__item--b">
-                        <img src="graphics/images/IMG_7727.jpg" alt="Naty performing on stage" loading="lazy" decoding="async">
+                        <img src="graphics/images/IMG_7727.jpg" alt="Naty performing on stage" loading="lazy" decoding="async" data-i18n="images.stage" data-i18n-attr="alt">
                     </figure>
                     <figure class="bio-collage__item bio-collage__item--c">
-                        <img src="graphics/images/colorful-pose.JPG" alt="Naty colorful contorsion pose" loading="lazy" decoding="async">
+                        <img src="graphics/images/colorful-pose.JPG" alt="Naty colorful contorsion pose" loading="lazy" decoding="async" data-i18n="images.colorfulPose" data-i18n-attr="alt">
                     </figure>
                     <figure class="bio-collage__item bio-collage__item--d">
-                        <img src="graphics/images/IMG_4785.JPG" alt="Naty dramatic stage shot" loading="lazy" decoding="async">
+                        <img src="graphics/images/IMG_4785.JPG" alt="Naty dramatic stage shot" loading="lazy" decoding="async" data-i18n="images.dramaticShot" data-i18n-attr="alt">
                     </figure>
                     <figure class="bio-collage__item bio-collage__item--e">
-                        <img src="graphics/images/balette-white-pose.jpg" alt="Naty in white balette pose" loading="lazy" decoding="async">
+                        <img src="graphics/images/balette-white-pose.jpg" alt="Naty in white balette pose" loading="lazy" decoding="async" data-i18n="images.whiteBalletPose" data-i18n-attr="alt">
                     </figure>
                 </div>
             </div>
@@ -70,7 +72,7 @@
         <!-- Promo Videos Section -->
         <section id="videos" class="videos-section reveal">
             <div class="container">
-                <h2 class="section-title text-center">On Stage</h2>
+                <h2 class="section-title text-center" data-i18n="videos.title">On Stage</h2>
                 <div class="video-grid">
                     <article class="video-card" data-video-src="https://youtu.be/4JVsCtcA3yA?si=ymXpmv03nRsO5IFs">
                         <video class="preview-video" muted loop playsinline preload="none" poster="graphics/thumbnail-videos/thumbnail-2.png">
@@ -93,22 +95,24 @@
         <section id="contact" class="contact-section reveal">
             <div class="contact-section__backdrop" aria-hidden="true"></div>
             <div class="container contact-section__content">
-                <h2 class="section-title text-center">Let&apos;s Create Something Unforgettable</h2>
-                <p class="contact-lead">
+                <h2 class="section-title text-center" data-i18n="contact.title">Let&apos;s Create Something Unforgettable</h2>
+                <p class="contact-lead" data-i18n="contact.lead">
                     Available for theatre productions, premium events, private showcases, and creative collaborations worldwide.
                 </p>
-                <a href="#contact" class="btn-primary js-config-link contact-cta" data-link-key="contactEmail">Book The Act</a>
+                <a href="#contact" class="btn-primary js-config-link contact-cta" data-link-key="contactEmail" data-i18n="contact.cta">Book The Act</a>
             </div>
         </section>
     </main>
 
     <div class="video-modal" id="video-modal" aria-hidden="true">
-        <div class="video-modal__dialog" role="dialog" aria-modal="true" aria-label="Performance video">
-            <button class="video-modal__close" id="video-modal-close" type="button" aria-label="Close video modal">×</button>
+        <div class="video-modal__dialog" role="dialog" aria-modal="true" aria-label="Performance video" data-i18n="modal.dialogAria" data-i18n-attr="aria-label">
+            <button class="video-modal__close" id="video-modal-close" type="button" aria-label="Close video modal" data-i18n="modal.closeAria" data-i18n-attr="aria-label">×</button>
             <iframe
                 id="modal-video-player"
                 class="video-modal__player"
                 title="Performance video"
+                data-i18n="modal.playerTitle"
+                data-i18n-attr="title"
                 src=""
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
@@ -121,20 +125,24 @@
     <footer class="site-footer">
         <div class="container footer-content">
             <div class="footer-socials">
-                <a class="footer-social js-config-link" data-link-key="instagram" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <a class="footer-social js-config-link" data-link-key="instagram" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-i18n="social.instagram" data-i18n-attr="aria-label">
                     <img class="social-icon" src="graphics/social/instagram-svgrepo-com.svg" alt="">
-                    <span class="sr-only">Instagram</span>
+                    <span class="sr-only" data-i18n="social.instagram">Instagram</span>
                 </a>
-                <a class="footer-social js-config-link" data-link-key="facebook" href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <img class="social-icon" src="graphics/social/facebook-svgrepo-com.svg" alt="">
-                    <span class="sr-only">Facebook</span>
+                <a class="footer-social js-config-link" data-link-key="youtube" href="https://youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <img class="social-icon" src="graphics/social/youtube.svg" alt="">
+                    <span class="sr-only">YouTube</span>
+                </a>
+                <a class="footer-social footer-social--cv js-config-link" data-link-key="cv" href="https://example.com/naty-cv.pdf" target="_blank" rel="noopener noreferrer" aria-label="CV">
+                    <span class="footer-social-cv-text">CV</span>
+                    <span class="sr-only">CV</span>
                 </a>
             </div>
             <div class="footer-links">
-                <a href="https://example.com/blog" class="footer-link js-config-link" data-link-key="blog" target="_blank" rel="noopener noreferrer">Blog</a>
-                <a href="#hero" class="footer-link">Back to Top</a>
+                <a href="https://example.com/blog" class="footer-link js-config-link" data-link-key="blog" target="_blank" rel="noopener noreferrer" data-i18n="footer.blog">Blog</a>
+                <a href="#hero" class="footer-link" data-i18n="footer.backToTop">Back to Top</a>
             </div>
-            <p class="copyright">&copy; 2026 Naty Contorsion Artist. All rights reserved.</p>
+            <p class="copyright" data-i18n="footer.copyright">&copy; 2026 Naty Contorsion Artist. All rights reserved.</p>
         </div>
     </footer>
     <script src="script.js"></script>

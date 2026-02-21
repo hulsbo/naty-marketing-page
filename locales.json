@@ -1,0 +1,134 @@
+{
+    "en": {
+        "meta": {
+            "title": "Naty - Contorsion Artist"
+        },
+        "hero": {
+            "subtitle": "Contorsion Artist",
+            "cta": "Book the Act"
+        },
+        "bio": {
+            "title": "The Art of Contorsion",
+            "body": "Naty is a professional contorsionist based in Cancun, Mexico, known for elegant flexibility and commanding stage presence. She has developed her unique style that blends circus with aesthetics from her extensive background as a contemporary and ballet dancer. Her work is a testament to the beauty of the human form pushed to its absolute limits.",
+            "cvCta": "See My CV",
+            "socialAria": "Social media links"
+        },
+        "social": {
+            "instagram": "Instagram",
+            "facebook": "Facebook"
+        },
+        "images": {
+            "portrait": "Naty portrait",
+            "stage": "Naty performing on stage",
+            "colorfulPose": "Naty colorful contorsion pose",
+            "dramaticShot": "Naty dramatic stage shot",
+            "whiteBalletPose": "Naty in white ballet pose"
+        },
+        "videos": {
+            "title": "On Stage"
+        },
+        "contact": {
+            "title": "Let's Create Something Unforgettable",
+            "lead": "Available for theatre productions, premium events, private showcases, and creative collaborations worldwide.",
+            "cta": "Book The Act"
+        },
+        "modal": {
+            "dialogAria": "Performance video",
+            "closeAria": "Close video modal",
+            "playerTitle": "Performance video"
+        },
+        "footer": {
+            "blog": "Blog",
+            "backToTop": "Back to Top",
+            "copyright": "(c) 2026 Naty Contorsion Artist. All rights reserved."
+        }
+    },
+    "es": {
+        "meta": {
+            "title": "Naty - Artista de Contorsión"
+        },
+        "hero": {
+            "subtitle": "Artista de Contorsión",
+            "cta": "Reserva el show"
+        },
+        "bio": {
+            "title": "El Arte de la Contorsión",
+            "body": "Naty es una contorsionista profesional con sede en Cancún, México, reconocida por su flexibilidad elegante y su gran presencia escénica. Ha desarrollado un estilo único que combina el circo con la estética de su amplia trayectoria como bailarina contemporánea y de ballet. Su trabajo es un testimonio de la belleza del cuerpo humano llevado a sus límites absolutos.",
+            "cvCta": "Ver mi CV",
+            "socialAria": "Enlaces de redes sociales"
+        },
+        "social": {
+            "instagram": "Instagram",
+            "facebook": "Facebook"
+        },
+        "images": {
+            "portrait": "Retrato de Naty",
+            "stage": "Naty actuando en el escenario",
+            "colorfulPose": "Pose de contorsión colorida de Naty",
+            "dramaticShot": "Toma dramática de Naty en escena",
+            "whiteBalletPose": "Naty en pose de ballet blanco"
+        },
+        "videos": {
+            "title": "En Escena"
+        },
+        "contact": {
+            "title": "Creemos Algo Inolvidable",
+            "lead": "Disponible para producciones teatrales, eventos premium, showcases privados y colaboraciones creativas en todo el mundo.",
+            "cta": "Reserva el show"
+        },
+        "modal": {
+            "dialogAria": "Video de presentación",
+            "closeAria": "Cerrar modal de video",
+            "playerTitle": "Video de presentación"
+        },
+        "footer": {
+            "blog": "Blog",
+            "backToTop": "Volver arriba",
+            "copyright": "(c) 2026 Naty Artista de Contorsión. Todos los derechos reservados."
+        }
+    },
+    "sv": {
+        "meta": {
+            "title": "Naty - Kontorsionist"
+        },
+        "hero": {
+            "subtitle": "Kontorsionist",
+            "cta": "Boka show"
+        },
+        "bio": {
+            "title": "Artistisk Kontorsion",
+            "body": "Naty är en professionell kontorsionist baserad i Cancún, Mexiko, känd för sin eleganta flexibilitet och starka scennärvaro. Hon har utvecklat en unik stil som förenar cirkus med estetik från sin bakgrund inom modern dans och balett. Hennes scenkonst är ett utforskande av människokroppens skönhet när den pressas till sitt yttersta gräns.",
+            "cvCta": "Se mitt CV",
+            "socialAria": "Länkar till sociala medier"
+        },
+        "social": {
+            "instagram": "Instagram",
+            "facebook": "Facebook"
+        },
+        "images": {
+            "portrait": "Porträtt av Naty",
+            "stage": "Naty uppträder på scen",
+            "colorfulPose": "Naty i en färgstark kontorsionsposition",
+            "dramaticShot": "Dramatisk scenbild av Naty",
+            "whiteBalletPose": "Naty i vit balettposition"
+        },
+        "videos": {
+            "title": "På scen"
+        },
+        "contact": {
+            "title": "Låt oss skapa något oförglömligt",
+            "lead": "Tillgänglig för teaterproduktioner, premiumevenemang, privata framträdanden och kreativa samarbeten över hela världen.",
+            "cta": "Boka show"
+        },
+        "modal": {
+            "dialogAria": "Framträdandevideo",
+            "closeAria": "Stäng videomodal",
+            "playerTitle": "Framträdandevideo"
+        },
+        "footer": {
+            "blog": "Blogg",
+            "backToTop": "Gå till toppen",
+            "copyright": "(c) 2026 Naty Kontorsionsartist. Alla rättigheter förbehållna."
+        }
+    }
+}

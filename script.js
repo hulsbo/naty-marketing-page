@@ -2,6 +2,7 @@ const LINK_CONFIG = {
     cv: "https://drive.google.com/file/d/1V_xaL_aGLBFeLxx6xte5O7x9fy-LKlm4/view?usp=drivesdk",
     blog: "/blog/",
     instagram: "https://www.instagram.com/naty_contorsion/",
+    youtube: "https://www.youtube.com/@natyczime",
 };
 
 const EMAIL_OBFUSCATION = {
@@ -9,6 +10,81 @@ const EMAIL_OBFUSCATION = {
     encodedChars: [106, 113, 118, 108, 118, 106, 123, 129, 73, 111, 119, 125, 116, 105, 114, 115, 54, 108, 118, 117],
     expectedHash: "9ed436fa"
 };
+
+const LOCALES_PATH = "locales.json";
+const DEFAULT_LOCALE = "en";
+let i18nCatalog = {};
+
+function getTranslationValue(dictionary, key) {
+    return key.split(".").reduce((value, part) => {
+        if (value && typeof value === "object") return value[part];
+        return undefined;
+    }, dictionary);
+}
+
+function getPreferredLocale(configuredLocales) {
+    if (!configuredLocales.length) {
+        return DEFAULT_LOCALE;
+    }
+
+    const fallbackLocale = configuredLocales.includes(DEFAULT_LOCALE)
+        ? DEFAULT_LOCALE
+        : configuredLocales[0];
+    const browserLocales = Array.isArray(navigator.languages) && navigator.languages.length
+        ? navigator.languages
+        : [navigator.language || fallbackLocale];
+    for (const locale of browserLocales) {
+        const normalized = String(locale || "").toLowerCase();
+        const baseLocale = normalized.split("-")[0];
+        if (configuredLocales.includes(baseLocale)) {
+            return baseLocale;
+        }
+    }
+    return fallbackLocale;
+}
+
+function applyLocale(locale, catalog) {
+    const configuredLocales = Object.keys(catalog);
+    const fallbackLocale = configuredLocales.includes(DEFAULT_LOCALE)
+        ? DEFAULT_LOCALE
+        : configuredLocales[0];
+    const dictionary = catalog[locale] || catalog[fallbackLocale];
+    if (!dictionary) return;
+    document.documentElement.lang = locale;
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+        const value = getTranslationValue(dictionary, key);
+        if (typeof value !== "string") return;
+
+        if (element.dataset.i18nAttr) {
+            element.setAttribute(element.dataset.i18nAttr, value);
+            return;
+        }
+        element.textContent = value;
+    });
+
+    const title = getTranslationValue(dictionary, "meta.title");
+    if (typeof title === "string") {
+        document.title = title;
+    }
+}
+
+async function loadLocaleCatalog() {
+    if (window.location.protocol === "file:") {
+        return {};
+    }
+
+    try {
+        const response = await fetch(LOCALES_PATH, { cache: "no-store" });
+        if (!response.ok) return {};
+        const parsed = await response.json();
+        if (!parsed || typeof parsed !== "object") return {};
+        return parsed;
+    } catch {
+        return {};
+    }
+}
 
 const videoCards = Array.from(document.querySelectorAll(".video-card"));
 const modal = document.getElementById("video-modal");
@@ -198,9 +274,20 @@ function setupRevealAnimations() {
     revealEls.forEach((section) => observer.observe(section));
 }
 
-wireConfiguredLinks();
-wireObfuscatedEmail();
-setupVideoCards();
-setupModalCloseBehavior();
-setupSmoothAnchorScroll();
-setupRevealAnimations();
+async function initApp() {
+    i18nCatalog = await loadLocaleCatalog();
+    const configuredLocales = Object.keys(i18nCatalog);
+    if (configuredLocales.length) {
+        const locale = getPreferredLocale(configuredLocales);
+        applyLocale(locale, i18nCatalog);
+    }
+
+    wireConfiguredLinks();
+    wireObfuscatedEmail();
+    setupVideoCards();
+    setupModalCloseBehavior();
+    setupSmoothAnchorScroll();
+    setupRevealAnimations();
+}
+
+void initApp();
