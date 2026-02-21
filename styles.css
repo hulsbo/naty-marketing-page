@@ -199,7 +199,7 @@ a {
 }
 
 .hero-logo {
-    width: clamp(180px, 34vw, 450px);
+    width: clamp(180px, min(80vw, calc(13.1vw + 251px)), 450px);
     max-width: 100%;
     margin-bottom: 2px;
     filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.3)); /* Gold shadow */
@@ -647,9 +647,6 @@ a {
     .hero-subheader {
         font-size: 1.45rem;
     }
-    .hero-logo {
-        width: clamp(120px, 42vw, 220px);
-    }
     .btn-primary {
         padding: 12px 30px;
         font-size: 1rem;
@@ -718,10 +715,6 @@ a {
 
     .hero-content {
         margin-top: -10vh;
-    }
-
-    .hero-logo {
-        width: clamp(96px, 46vw, 170px);
     }
 
     .section-divider {
