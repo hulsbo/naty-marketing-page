@@ -582,7 +582,7 @@ a {
 .contact-section__backdrop {
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.85)), url('graphics/images/balette-flower.JPG');
+    background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.85)), url('graphics/images/contemporary-flower.JPG');
     background-size: cover;
     background-position: center;
     transform: scale(1.03);
