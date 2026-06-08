@@ -19,6 +19,7 @@
         },
         "images": {
             "portrait": "Naty portrait",
+            "balancePose": "Naty contorsion balance pose",
             "stage": "Naty performing on stage",
             "colorfulPose": "Naty colorful contorsion pose",
             "dramaticShot": "Naty dramatic stage shot",
@@ -63,6 +64,7 @@
         },
         "images": {
             "portrait": "Retrato de Naty",
+            "balancePose": "Pose de equilibrio en contorsión de Naty",
             "stage": "Naty actuando en el escenario",
             "colorfulPose": "Pose de contorsión colorida de Naty",
             "dramaticShot": "Toma dramática de Naty en escena",
@@ -107,6 +109,7 @@
         },
         "images": {
             "portrait": "Porträtt av Naty",
+            "balancePose": "Naty i balanserande kontorsionsposition",
             "stage": "Naty uppträder på scen",
             "colorfulPose": "Naty i en färgstark kontorsionsposition",
             "dramaticShot": "Dramatisk scenbild av Naty",

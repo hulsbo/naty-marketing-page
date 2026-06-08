@@ -9,6 +9,13 @@
     --font-body: 'Montserrat', sans-serif;
     
     --transition-smooth: all 0.4s ease-in-out;
+
+    /* Hero background vertical crop — lower = show higher in image, higher = show lower */
+    --hero-bg-position-y: 33%;
+
+    /* Top mosaic image focal point — higher % = show lower in image */
+    --bio-collage-a-position-y: 28%;
+    --bio-collage-c-position-y: 35%;
 }
 
 * {
@@ -152,9 +159,9 @@ a {
     height: 100vh;
     min-height: 100svh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    align-items: flex-start;
+    justify-content: flex-end;
+    text-align: right;
     overflow: hidden;
 }
 
@@ -165,9 +172,9 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('graphics/images/IMG_3842.jpeg');
+    background-image: url('graphics/13333DA8-62B0-4C33-9FC2-92CD9F78CF10.jpeg');
     background-size: cover;
-    background-position: center center;
+    background-position: center var(--hero-bg-position-y);
     background-repeat: no-repeat;
     z-index: 1;
 }
@@ -182,27 +189,79 @@ a {
     height: 100%;
     background:
         linear-gradient(to bottom, rgba(5, 5, 5, 1) 0%, rgba(5, 5, 5, 0) 14%, rgba(5, 5, 5, 0) 82%, rgba(5, 5, 5, 1) 100%),
-        radial-gradient(circle at center, rgba(107, 0, 0, 0.3) 0%, rgba(5, 5, 5, 0.9) 70%);
+        radial-gradient(circle at center, rgba(107, 0, 0, 0.2) 0%, rgba(5, 5, 5, 0.9) 80%);
 }
 
 .hero-content {
-    position: relative;
+    position: absolute;
     z-index: 2;
-    padding: 0 20px;
-    margin-top: -28vh;
-    width: min(980px, 100%);
+    top: clamp(72px, 11vh, 128px);
+    right: clamp(16px, 3.5vw, 44px);
+    width: min(330px, calc(100% - 32px));
+    padding: clamp(0.94rem, 1.95vw, 1.39rem) clamp(1.05rem, 2.1vw, 1.5rem);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-end;
+    text-align: right;
+    gap: clamp(9px, 1.35vh, 14px);
     animation: fadeIn 1.4s ease-out;
 }
 
-.hero-logo {
-    width: clamp(180px, min(80vw, calc(13.1vw + 251px)), 450px);
-    max-width: 100%;
+/* Organic dark panel behind hero text — soft fade, round bottom-left */
+.hero-content::before {
+    content: '';
+    position: absolute;
+    inset: -32px -28px -48px -72px;
+    border-radius: 40px 22px 36px 120px;
+    background: rgba(5, 5, 5, 0.78);
+    z-index: -1;
+    filter: blur(36px);
+    pointer-events: none;
+}
+
+.hero-content::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 32px 16px 28px 88px;
+    background: radial-gradient(
+        ellipse 88% 92% at 72% 42%,
+        rgba(5, 5, 5, 0.72) 0%,
+        rgba(5, 5, 5, 0.52) 52%,
+        rgba(5, 5, 5, 0) 100%
+    );
+    z-index: -1;
+    box-shadow:
+        0 0 56px 32px rgba(5, 5, 5, 0.38),
+        0 0 96px 48px rgba(5, 5, 5, 0.18);
+    pointer-events: none;
+}
+
+.hero-content .section-title {
+    font-size: clamp(0.86rem, 2.25vw, 1.24rem);
+    margin-bottom: 4px;
+    letter-spacing: 0.14em;
+    text-align: right;
+}
+
+.hero-content .btn-primary {
+    padding: clamp(9px, 1.2vh, 12px) clamp(21px, 3vw, 30px);
+    font-size: clamp(0.71rem, 1.8vw, 0.9rem);
+    letter-spacing: 0.14em;
+    align-self: flex-end;
+}
+
+.hero-logo-text {
+    font-family: var(--font-heading);
+    font-size: clamp(1.65rem, 4.9vw, 2.7rem);
+    font-weight: 900;
+    color: var(--color-gold);
+    letter-spacing: 0.12em;
     margin-bottom: 2px;
-    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.3)); /* Gold shadow */
+    line-height: 1.1;
+    text-shadow:
+        0 0 15px rgba(212, 175, 55, 0.3),
+        2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .hero-subheader {
@@ -231,7 +290,7 @@ a {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    align-self: center;
+    align-self: flex-end;
 }
 
 .btn-primary::before {
@@ -381,14 +440,27 @@ a {
     grid-row: 1 / 7;
 }
 
+.bio-collage__item--a img {
+    object-position: center var(--bio-collage-a-position-y);
+}
+
+.bio-collage__item--f {
+    grid-column: 8 / 13;
+    grid-row: 1 / 4;
+}
+
+.bio-collage__item--c img {
+    object-position: center var(--bio-collage-c-position-y);
+}
+
 .bio-collage__item--b {
     grid-column: 8 / 13;
-    grid-row: 1 / 5;
+    grid-row: 4 / 7;
 }
 
 .bio-collage__item--c {
     grid-column: 8 / 13;
-    grid-row: 5 / 11;
+    grid-row: 7 / 11;
 }
 
 .bio-collage__item--d {
@@ -588,7 +660,7 @@ a {
 .contact-section__backdrop {
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.85)), url('graphics/images/contemporary-flower.JPG');
+    background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.85)), url('graphics/images/IMG_3842.jpeg');
     background-size: cover;
     background-position: center;
     transform: scale(1.03);
@@ -633,6 +705,10 @@ a {
 
 /* Make horizontally arranged cards visibly taller */
 @media (min-width: 769px) {
+    .hero-background {
+        background-size: 100% 200%;
+    }
+
     .video-card {
         aspect-ratio: 4/5;
     }
@@ -640,8 +716,47 @@ a {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .hero-section {
+        align-items: flex-end;
+        justify-content: center;
+        text-align: center;
+    }
+
     .hero-content {
-        margin-top: -16vh;
+        top: auto;
+        right: auto;
+        left: 0;
+        right: 0;
+        bottom: clamp(40px, 8vh, 72px);
+        width: min(400px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 0.83rem 0.94rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-content::before {
+        inset: -24px -36px -32px -36px;
+        border-radius: 36px;
+        filter: blur(28px);
+    }
+
+    .hero-content::after {
+        border-radius: 26px;
+        background: radial-gradient(
+            ellipse 92% 88% at 50% 55%,
+            rgba(5, 5, 5, 0.72) 0%,
+            rgba(5, 5, 5, 0.52) 52%,
+            rgba(5, 5, 5, 0) 100%
+        );
+    }
+
+    .hero-content .section-title {
+        text-align: center;
+    }
+
+    .hero-content .btn-primary {
+        align-self: center;
     }
 
     .hero-subheader {
@@ -669,8 +784,52 @@ a {
 
     .bio-collage {
         width: min(560px, 100%);
+        margin-inline: auto;
         gap: 8px;
-        aspect-ratio: 1;
+        aspect-ratio: auto;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: none;
+        grid-auto-rows: auto;
+    }
+
+    .bio-collage__item {
+        min-height: 0;
+    }
+
+    .bio-collage__item--a {
+        grid-column: 1;
+        grid-row: 1;
+        aspect-ratio: 3 / 4;
+    }
+
+    .bio-collage__item--f {
+        grid-column: 2;
+        grid-row: 1;
+        aspect-ratio: 3 / 4;
+    }
+
+    .bio-collage__item--b {
+        grid-column: 1;
+        grid-row: 2;
+        aspect-ratio: 4 / 5;
+    }
+
+    .bio-collage__item--c {
+        grid-column: 2;
+        grid-row: 2;
+        aspect-ratio: 4 / 5;
+    }
+
+    .bio-collage__item--d {
+        grid-column: 1;
+        grid-row: 3;
+        aspect-ratio: 4 / 5;
+    }
+
+    .bio-collage__item--e {
+        grid-column: 2;
+        grid-row: 3;
+        aspect-ratio: 4 / 5;
     }
 
     .video-grid {
@@ -714,7 +873,19 @@ a {
     }
 
     .hero-content {
-        margin-top: -10vh;
+        bottom: clamp(32px, 7vh, 56px);
+        width: min(320px, calc(100% - 24px));
+        padding: 0.75rem 0.83rem;
+    }
+
+    .hero-content::before {
+        inset: -20px -28px -28px -28px;
+        border-radius: 28px;
+        filter: blur(24px);
+    }
+
+    .hero-content::after {
+        border-radius: 22px;
     }
 
     .section-divider {
@@ -727,22 +898,19 @@ a {
     }
 
     .bio-collage {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, minmax(120px, 1fr));
-        aspect-ratio: auto;
+        gap: 6px;
     }
 
     .bio-collage__item--a,
+    .bio-collage__item--f {
+        aspect-ratio: 3 / 4;
+    }
+
     .bio-collage__item--b,
     .bio-collage__item--c,
     .bio-collage__item--d,
     .bio-collage__item--e {
-        grid-column: auto;
-        grid-row: auto;
-    }
-
-    .bio-collage__item--a {
-        grid-column: 1 / 3;
+        aspect-ratio: 3 / 4;
     }
 }
 
