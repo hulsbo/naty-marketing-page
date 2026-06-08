@@ -1,6 +1,6 @@
 const LINK_CONFIG = {
     cv: "https://drive.google.com/file/d/1V_xaL_aGLBFeLxx6xte5O7x9fy-LKlm4/view?usp=drivesdk",
-    blog: "/blog/",
+    blog: "blog/",
     instagram: "https://www.instagram.com/naty_contorsion/",
     youtube: "https://www.youtube.com/@natyczime",
 };
@@ -170,7 +170,7 @@ function closeModal() {
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
-    modalPlayer.src = "";
+    modalPlayer.src = "about:blank";
 }
 
 function setupVideoCards() {
@@ -197,10 +197,6 @@ function setupVideoCards() {
             card.classList.remove("playing");
         });
         card.addEventListener("click", () => {
-            if (isYouTubeVideo) {
-                window.open(source, "_blank", "noopener,noreferrer");
-                return;
-            }
             pauseAllPreviews();
             openModal(source);
         });
