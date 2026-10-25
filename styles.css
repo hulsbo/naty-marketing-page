@@ -179,7 +179,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('graphics/13333DA8-62B0-4C33-9FC2-92CD9F78CF10.jpeg');
+    background-image: url('graphics/contorsion/images/13333DA8-62B0-4C33-9FC2-92CD9F78CF10.jpeg');
     background-size: cover;
     background-position: center var(--hero-bg-position-y);
     background-repeat: no-repeat;
@@ -698,7 +698,7 @@ a {
 .contact-section__backdrop {
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.85)), url('graphics/images/IMG_3842.jpeg');
+    background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.85)), url('graphics/contorsion/images/IMG_3842.jpeg');
     background-size: cover;
     background-position: center;
     transform: scale(1.03);
@@ -1170,8 +1170,15 @@ a {
     border: 0;
 }
 
+.course-card__photo video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    display: block;
+}
+
 .course-card__photo img,
-.course-card__photo video,
 .portrait-slot img {
     width: 100%;
     height: 100%;
@@ -1182,10 +1189,6 @@ a {
 .course-card__photo--handstand img {
     object-position: center 42%;
     transform: scale(1.15);
-}
-
-.course-card__photo--handstand video {
-    object-position: center center;
 }
 
 .course-card__photo--detail img {
@@ -1267,7 +1270,7 @@ a {
 .course-card {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
-    min-height: 460px;
+    align-items: stretch;
     margin-top: 28px;
     background: rgba(255, 252, 248, 0.88);
     border: 1px solid rgba(255, 255, 255, 0.9);
@@ -1325,6 +1328,7 @@ a {
 .course-card__photo {
     margin: 0;
     min-height: 320px;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
     background: #efe6da;
 }
