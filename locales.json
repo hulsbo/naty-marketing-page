@@ -41,6 +41,7 @@
         "footer": {
             "blog": "Blog",
             "backToTop": "Back to Top",
+            "pilates": "Naty Movement",
             "copyright": "(c) 2026 Naty Contorsion Artist. All rights reserved."
         }
     },
@@ -86,6 +87,7 @@
         "footer": {
             "blog": "Blog",
             "backToTop": "Volver arriba",
+            "pilates": "Naty Movement",
             "copyright": "(c) 2026 Naty Artista de Contorsión. Todos los derechos reservados."
         }
     },
@@ -131,6 +133,7 @@
         "footer": {
             "blog": "Blogg",
             "backToTop": "Gå till toppen",
+            "pilates": "Naty Movement",
             "copyright": "(c) 2026 Naty Kontorsionsartist. Alla rättigheter förbehållna."
         }
     }

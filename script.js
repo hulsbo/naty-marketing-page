@@ -124,7 +124,10 @@ function wireObfuscatedEmail() {
     if (hashString(decodedEmail) !== EMAIL_OBFUSCATION.expectedHash) return;
 
     contactLinks.forEach((link) => {
-        link.href = `mailto:${decodedEmail}`;
+        const subject = link.dataset.mailSubject;
+        link.href = subject
+            ? `mailto:${decodedEmail}?subject=${encodeURIComponent(subject)}`
+            : `mailto:${decodedEmail}`;
     });
 }
 
@@ -196,7 +199,14 @@ function setupVideoCards() {
             preview.currentTime = 0;
             card.classList.remove("playing");
         });
-        card.addEventListener("click", () => {
+    });
+
+    document.querySelectorAll(".video-showcase").forEach((showcase) => {
+        const card = showcase.querySelector(".video-card");
+        const source = card?.dataset.videoSrc;
+        if (!card || !source) return;
+
+        showcase.addEventListener("click", () => {
             pauseAllPreviews();
             openModal(source);
         });
@@ -236,11 +246,29 @@ function setupSmoothAnchorScroll() {
     });
 }
 
+function setupPackagePanels() {
+    document.querySelectorAll("[data-package-toggle]").forEach((button) => {
+        const panelId = button.getAttribute("aria-controls");
+        const panel = panelId ? document.getElementById(panelId) : null;
+        if (!panel) return;
+
+        button.addEventListener("click", () => {
+            const willOpen = button.getAttribute("aria-expanded") !== "true";
+            button.setAttribute("aria-expanded", String(willOpen));
+            panel.hidden = !willOpen;
+            const label = button.querySelector("[data-package-label]");
+            if (label) {
+                label.textContent = willOpen ? label.dataset.labelOpen : label.dataset.labelClosed;
+            }
+        });
+    });
+}
+
 function setupRevealAnimations() {
     const revealTargets = [
         ".bio-collage",
         ".bio-content",
-        ".video-card",
+        ".video-showcase",
         ".contact-section__content",
         ".footer-content"
     ];
@@ -249,7 +277,7 @@ function setupRevealAnimations() {
             if (!el.classList.contains("reveal")) {
                 el.classList.add("reveal");
             }
-            if (selector === ".video-card") {
+            if (selector === ".video-showcase") {
                 el.style.transitionDelay = `${index * 90}ms`;
             }
         });
@@ -270,12 +298,52 @@ function setupRevealAnimations() {
     revealEls.forEach((section) => observer.observe(section));
 }
 
+function setupPilatesPage() {
+    const page = document.querySelector(".pilates-page");
+    if (!page) return;
+
+    const header = document.querySelector(".pilates-nav");
+    const onScroll = () => {
+        header?.classList.toggle("is-scrolled", window.scrollY > 8);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    const links = Array.from(document.querySelectorAll(".pilates-nav__links a[href^='#']"));
+    const sections = links
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+    if (!sections.length || !("IntersectionObserver" in window)) return;
+
+    const toneObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.id;
+            if (entry.target.dataset.tone) {
+                page.dataset.tone = entry.target.dataset.tone;
+            }
+            links.forEach((link) => {
+                link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
+            });
+        });
+    }, {
+        rootMargin: "-45% 0px -45% 0px",
+        threshold: 0
+    });
+
+    sections.forEach((section) => toneObserver.observe(section));
+}
+
 async function initApp() {
-    i18nCatalog = await loadLocaleCatalog();
-    const configuredLocales = Object.keys(i18nCatalog);
-    if (configuredLocales.length) {
-        const locale = getPreferredLocale(configuredLocales);
-        applyLocale(locale, i18nCatalog);
+    const lockLocale = document.documentElement.dataset.localeLock;
+    if (!lockLocale) {
+        i18nCatalog = await loadLocaleCatalog();
+        const configuredLocales = Object.keys(i18nCatalog);
+        if (configuredLocales.length) {
+            const locale = getPreferredLocale(configuredLocales);
+            applyLocale(locale, i18nCatalog);
+        }
     }
 
     wireConfiguredLinks();
@@ -284,6 +352,8 @@ async function initApp() {
     setupModalCloseBehavior();
     setupSmoothAnchorScroll();
     setupRevealAnimations();
+    setupPackagePanels();
+    setupPilatesPage();
 }
 
 void initApp();

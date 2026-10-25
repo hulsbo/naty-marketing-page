@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title" data-i18n="meta.title">Naty - Contorsion Artist</title>
-    <link rel="icon" type="image/x-icon" href="graphics/icon-nc.ico">
+    <link rel="icon" type="image/png" href="graphics/icon-nc.png">
+    <link rel="icon" type="image/x-icon" href="graphics/icon-nc.ico" sizes="any">
+    <link rel="apple-touch-icon" href="graphics/icon-nc.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,27 +79,36 @@
             <div class="container">
                 <h2 class="section-title text-center" data-i18n="videos.title">On Stage</h2>
                 <div class="video-grid">
-                    <article class="video-card" data-video-src="https://youtu.be/4JVsCtcA3yA?si=ymXpmv03nRsO5IFs">
-                        <video class="preview-video" muted loop playsinline preload="none" poster="graphics/thumbnail-videos/thumbnail-2.jpeg">
-                        </video>
-                        <div class="play-overlay">
-                            <span class="play-icon">▶</span>
-                        </div>
-                    </article>
-					<article class="video-card" data-video-src="https://www.youtube.com/watch?v=uYy2v5L3Xs4">
-                        <video class="preview-video" muted loop playsinline preload="none" poster="graphics/thumbnail-videos/thumbnail-4.jpeg">
-                        </video>
-                        <div class="play-overlay">
-                            <span class="play-icon">▶</span>
-                        </div>
-                    </article>
-                    <article class="video-card" data-video-src="https://www.youtube.com/watch?si=nz0wSbJZLEXMOBuD&amp;v=0nate7etTJE&amp;feature=youtu.be">
-                        <video class="preview-video" muted loop playsinline preload="none" poster="graphics/thumbnail-videos/thumbnail-3.jpeg">
-                        </video>
-                        <div class="play-overlay">
-                            <span class="play-icon">▶</span>
-                        </div>
-                    </article>
+                    <div class="video-showcase">
+                        <article class="video-card" data-video-src="https://youtu.be/Aty2rmz9dL8?si=32WOK37EHrrggvKM">
+                            <video class="preview-video" muted loop playsinline preload="none" poster="graphics/thumbnail-videos/thumbnail-3.jpeg">
+                            </video>
+                            <div class="play-overlay">
+                                <span class="play-icon">▶</span>
+                            </div>
+                        </article>
+                        <p class="video-card__title">Full Contortion Act 2026</p>
+                    </div>
+                    <div class="video-showcase">
+                        <article class="video-card" data-video-src="https://youtu.be/4JVsCtcA3yA?si=ymXpmv03nRsO5IFs">
+                            <video class="preview-video" muted loop playsinline preload="none" poster="graphics/thumbnail-videos/thumbnail-2.jpeg">
+                            </video>
+                            <div class="play-overlay">
+                                <span class="play-icon">▶</span>
+                            </div>
+                        </article>
+                        <p class="video-card__title">Zirkus STEY 2025</p>
+                    </div>
+                    <div class="video-showcase">
+                        <article class="video-card" data-video-src="https://www.youtube.com/watch?v=uYy2v5L3Xs4">
+                            <video class="preview-video" muted loop playsinline preload="none" poster="graphics/thumbnail-videos/thumbnail-4.jpeg">
+                            </video>
+                            <div class="play-overlay">
+                                <span class="play-icon">▶</span>
+                            </div>
+                        </article>
+                        <p class="video-card__title">Contortion 2026</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -118,17 +129,19 @@
     <div class="video-modal" id="video-modal" aria-hidden="true">
         <div class="video-modal__dialog" role="dialog" aria-modal="true" aria-label="Performance video" data-i18n="modal.dialogAria" data-i18n-attr="aria-label">
             <button class="video-modal__close" id="video-modal-close" type="button" aria-label="Close video modal" data-i18n="modal.closeAria" data-i18n-attr="aria-label">×</button>
-            <iframe
-                id="modal-video-player"
-                class="video-modal__player"
-                title="Performance video"
-                data-i18n="modal.playerTitle"
-                data-i18n-attr="title"
-                src="about:blank"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                referrerpolicy="strict-origin-when-cross-origin"
-            ></iframe>
+            <div class="video-modal__embed">
+                <iframe
+                    id="modal-video-player"
+                    class="video-modal__player"
+                    title="Performance video"
+                    data-i18n="modal.playerTitle"
+                    data-i18n-attr="title"
+                    src="about:blank"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+            </div>
         </div>
     </div>
 
@@ -153,6 +166,7 @@
                 <a href="#hero" class="footer-link" data-i18n="footer.backToTop">Back to Top</a>
             </div>
             <p class="copyright" data-i18n="footer.copyright">&copy; 2026 Naty Contorsion Artist. All rights reserved.</p>
+            <a href="pilates.html" class="footer-link footer-link--studio" data-i18n="footer.pilates">Naty Movement</a>
         </div>
     </footer>
     <script src="script.js"></script>

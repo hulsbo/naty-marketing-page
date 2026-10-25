@@ -130,6 +130,13 @@ a {
     color: var(--color-white);
 }
 
+.footer-link--studio {
+    margin-top: 4px;
+    font-size: 0.92rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
 .copyright {
     font-size: 0.85rem;
     opacity: 0.7;
@@ -537,6 +544,24 @@ a {
     margin-top: 50px;
 }
 
+.video-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.video-card__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--color-gold);
+    text-align: center;
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+}
+
 .video-card {
     position: relative;
     aspect-ratio: 4/5;
@@ -622,14 +647,27 @@ a {
 }
 
 .video-modal__dialog {
-    width: min(980px, 92vw);
+    width: min(980px, 92vw, calc(84vh * 16 / 9));
     position: relative;
 }
 
-.video-modal__player {
+.video-modal__embed {
+    position: relative;
     width: 100%;
-    max-height: 84vh;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
     border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 6px;
+    background: #000;
+}
+
+.video-modal__player {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
     border-radius: 6px;
     background: #000;
 }
@@ -911,6 +949,609 @@ a {
     .bio-collage__item--d,
     .bio-collage__item--e {
         aspect-ratio: 3 / 4;
+    }
+}
+
+/* Pilates & stretching studio page */
+.pilates-page {
+    --pilates-ink: #2c4038;
+    --pilates-muted: #5d7068;
+    --pilates-clay: #8d6b52;
+    --pilates-sage: #3f6f62;
+    --pilates-sage-deep: #2c554b;
+    --nav-wash: #f7f1e4;
+    background: #f7f1e4;
+    color: var(--pilates-ink);
+    font-family: "Outfit", sans-serif;
+    font-weight: 400;
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+.pilates-page h1,
+.pilates-page h2,
+.pilates-page h3,
+.pilates-brand,
+.pilates-footer__mark,
+.course-card__price {
+    font-family: "Fraunces", serif;
+    font-weight: 460;
+    letter-spacing: -0.03em;
+}
+
+.pilates-page section[id] {
+    scroll-margin-top: 108px;
+}
+
+.pilates-kicker {
+    color: var(--pilates-clay);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.pilates-page h1,
+.pilates-page h2,
+.pilates-page h3 {
+    color: var(--pilates-sage-deep);
+    line-height: 1.08;
+}
+
+.pilates-page h1 {
+    font-size: clamp(2.35rem, 4.2vw, 3.55rem);
+    margin-bottom: 18px;
+}
+
+.pilates-page h2 {
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    margin-bottom: 16px;
+}
+
+.pilates-lead,
+.pilates-story__copy p,
+.pilates-packages__intro p,
+.course-card__copy p {
+    color: var(--pilates-muted);
+    font-size: 1.05rem;
+    font-weight: 300;
+}
+
+.pilates-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 14px 26px;
+    border-radius: 999px;
+    background: var(--pilates-sage);
+    color: #f6fbf8;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    box-shadow: 0 12px 26px rgba(63, 111, 98, 0.22);
+}
+
+.pilates-cta:hover {
+    background: var(--pilates-sage-deep);
+    color: #f6fbf8;
+    transform: translateY(-1px);
+}
+
+.pilates-nav {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+    width: min(1080px, calc(100% - 28px));
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 18px;
+    padding: 10px 12px 10px 22px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--nav-wash) 82%, white);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 28px rgba(70, 84, 74, 0.08);
+    backdrop-filter: blur(16px);
+    transition: background 0.6s ease, box-shadow 0.6s ease;
+}
+
+.pilates-nav.is-scrolled {
+    box-shadow: 0 14px 32px rgba(70, 84, 74, 0.12);
+}
+
+.pilates-page[data-tone="historia"] {
+    --nav-wash: #e7f2ea;
+}
+
+.pilates-page[data-tone="paquetes"] {
+    --nav-wash: #f6efe8;
+}
+
+.pilates-page[data-tone="voces"] {
+    --nav-wash: #e7eef3;
+}
+
+.pilates-brand {
+    font-size: 1.45rem;
+    color: var(--pilates-sage-deep);
+}
+
+.pilates-nav__links {
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+}
+
+.pilates-nav__links a {
+    color: var(--pilates-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.pilates-nav__links a.is-active,
+.pilates-nav__links a:hover {
+    color: var(--pilates-sage-deep);
+}
+
+.pilates-cta--nav {
+    padding: 10px 18px;
+    font-size: 0.92rem;
+    box-shadow: none;
+}
+
+.pilates-hero {
+    --band-end: #f4efe6;
+    position: relative;
+    z-index: 1;
+    padding: 132px 0 170px;
+    background:
+        radial-gradient(circle at 82% 0%, rgba(255, 206, 122, 0.5), transparent 26%),
+        linear-gradient(180deg, #fbf6ec 0%, var(--band-end) 62%, var(--band-end) 100%);
+}
+
+.pilates-hero::before {
+    content: "";
+    position: absolute;
+    width: min(560px, 72vw);
+    height: min(560px, 72vw);
+    right: -90px;
+    top: -150px;
+    background: radial-gradient(circle, rgba(255, 236, 196, 0.95) 0%, rgba(255, 210, 140, 0.28) 46%, transparent 70%);
+    pointer-events: none;
+}
+
+.pilates-hero__grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+    gap: 48px;
+    align-items: center;
+}
+
+.pilates-hero__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 34rem;
+    padding-top: 12px;
+}
+
+.pilates-hero__copy .pilates-cta,
+.course-card__copy .pilates-cta {
+    margin-top: 22px;
+}
+
+.pilates-video,
+.portrait-slot,
+.course-card,
+.voice-card {
+    border-radius: 28px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.85),
+        0 18px 40px rgba(64, 78, 70, 0.12);
+}
+
+.pilates-video {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #e7efe9;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.pilates-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.course-card__photo img,
+.course-card__photo video,
+.portrait-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.course-card__photo--handstand img {
+    object-position: center 42%;
+    transform: scale(1.15);
+}
+
+.course-card__photo--handstand video {
+    object-position: center center;
+}
+
+.course-card__photo--detail img {
+    object-position: center 18%;
+}
+
+.pilates-story {
+    --band: #e7f2ea;
+    position: relative;
+    z-index: 2;
+    margin-top: -150px;
+    padding: 210px 0 170px;
+    background: linear-gradient(180deg, rgba(231, 242, 234, 0) 0, var(--band) 220px, var(--band) 100%);
+}
+
+.pilates-story__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 56px;
+    align-items: center;
+}
+
+.pilates-story__copy p + p {
+    margin-top: 16px;
+}
+
+.portrait-slot {
+    width: 300px;
+    max-width: 100%;
+    aspect-ratio: 3 / 4;
+    margin: 0;
+    justify-self: end;
+    background: #efe6da;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+}
+
+.portrait-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.pilates-packages {
+    --band: #f6f1ea;
+    position: relative;
+    z-index: 3;
+    margin-top: -150px;
+    padding: 210px 0 170px;
+    background: linear-gradient(180deg, rgba(246, 241, 234, 0) 0, var(--band) 220px, var(--band) 100%);
+}
+
+.pilates-packages .container {
+    position: relative;
+    z-index: 1;
+}
+
+.pilates-packages__intro {
+    max-width: 40rem;
+    margin-bottom: 36px;
+}
+
+.pilates-single {
+    margin-top: 18px;
+    color: var(--pilates-ink);
+    font-weight: 400;
+}
+
+.pilates-single strong {
+    font-family: "Fraunces", serif;
+    font-size: 1.35rem;
+    font-weight: 560;
+    color: var(--pilates-sage-deep);
+}
+
+.course-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+    min-height: 460px;
+    margin-top: 28px;
+    background: rgba(255, 252, 248, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+}
+
+.course-card__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: start;
+    justify-content: flex-start;
+    padding: 40px 36px;
+}
+
+.course-card h3 {
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    margin-bottom: 4px;
+}
+
+.course-card__price {
+    font-size: 1.7rem;
+    color: var(--pilates-sage);
+    margin-bottom: 12px;
+}
+
+.course-card__copy ul {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+    margin: 16px 0 0;
+}
+
+.course-card__copy li {
+    position: relative;
+    padding-left: 16px;
+    color: var(--pilates-muted);
+}
+
+.course-card__copy li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #7ea894;
+}
+
+.course-card__rule {
+    background: rgba(63, 111, 98, 0.28);
+}
+
+.course-card__photo {
+    margin: 0;
+    min-height: 320px;
+    overflow: hidden;
+    background: #efe6da;
+}
+
+.course-card--flip .course-card__photo {
+    order: 1;
+}
+
+.course-card--flip .course-card__rule {
+    order: 2;
+}
+
+.course-card--flip .course-card__copy {
+    order: 3;
+}
+
+.pilates-voices {
+    --band: #e7eef3;
+    position: relative;
+    z-index: 4;
+    margin-top: -150px;
+    padding: 210px 0 170px;
+    background: linear-gradient(180deg, rgba(231, 238, 243, 0) 0, var(--band) 220px, var(--band) 100%);
+}
+
+.pilates-voices .container {
+    position: relative;
+    z-index: 1;
+}
+
+.pilates-voices__intro {
+    margin-bottom: 28px;
+}
+
+.voice-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.voice-card {
+    margin: 0;
+    padding: 28px 24px 22px;
+    background: rgba(255, 252, 248, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 28px;
+    min-height: 240px;
+}
+
+.voice-card p {
+    font-family: "Fraunces", serif;
+    font-size: 1.35rem;
+    font-weight: 460;
+    font-style: italic;
+    line-height: 1.35;
+    color: var(--pilates-sage-deep);
+}
+
+.voice-card figcaption {
+    color: var(--pilates-clay);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.pilates-footer {
+    --band: #dfe8e2;
+    position: relative;
+    z-index: 5;
+    margin-top: -150px;
+    padding: 200px 0 36px;
+    background: linear-gradient(180deg, rgba(223, 232, 226, 0) 0, var(--band) 220px, var(--band) 100%);
+    color: var(--pilates-muted);
+}
+
+.pilates-footer__grid,
+.pilates-footer__notice {
+    position: relative;
+    z-index: 1;
+}
+
+.pilates-footer__grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 18px;
+}
+
+.pilates-footer__social,
+.pilates-footer__legal {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.pilates-footer__legal {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.pilates-footer__mark {
+    font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+    color: rgba(44, 85, 75, 0.16);
+    line-height: 1;
+}
+
+.pilates-social {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pilates-sage-deep);
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.pilates-social svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.pilates-social:hover,
+.pilates-footer__legal a:hover {
+    color: var(--pilates-sage);
+}
+
+.pilates-footer__legal a,
+.pilates-footer__legal p {
+    font-size: 0.88rem;
+}
+
+.pilates-footer__notice {
+    margin-top: 28px;
+    text-align: center;
+    font-size: 0.85rem;
+    max-width: 640px;
+}
+
+@media (max-width: 900px) {
+    .pilates-nav {
+        width: min(100% - 16px, 1080px);
+        top: 8px;
+        grid-template-columns: 1fr auto;
+        border-radius: 22px;
+        padding: 10px 10px 10px 16px;
+    }
+
+    .pilates-nav__links {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+        gap: 16px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+    }
+
+    .pilates-hero {
+        padding-top: 148px;
+    }
+
+    .pilates-hero__grid,
+    .pilates-story__grid,
+    .course-card,
+    .course-card--flip {
+        grid-template-columns: 1fr;
+    }
+
+    .portrait-slot {
+        justify-self: center;
+    }
+
+    .course-card__rule {
+        width: calc(100% - 48px);
+        height: 1px;
+        margin-inline: auto;
+    }
+
+    .course-card__copy,
+    .course-card--flip .course-card__copy {
+        order: 1;
+    }
+
+    .course-card__rule,
+    .course-card--flip .course-card__rule {
+        order: 2;
+    }
+
+    .course-card__photo,
+    .course-card--flip .course-card__photo {
+        order: 3;
+        min-height: 280px;
+    }
+
+    .voice-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pilates-footer__grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .pilates-footer__legal {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .voice-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portrait-slot {
+        width: min(300px, 100%);
+        justify-self: center;
+    }
+
+    .course-card__copy {
+        padding: 28px 22px;
     }
 }
 
