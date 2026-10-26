@@ -1399,8 +1399,28 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 28px;
+    gap: 10px;
     min-height: 240px;
+}
+
+.voice-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.voice-card__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.voice-card__rating {
+    color: #c28a3d;
+    font-size: 1.35rem;
+    letter-spacing: 0.14em;
+    line-height: 1;
 }
 
 .voice-card p {
@@ -1416,7 +1436,9 @@ a {
     color: var(--pilates-clay);
     font-size: 0.82rem;
     letter-spacing: 0.08em;
+    line-height: 1.3;
     text-transform: uppercase;
+    text-align: left;
 }
 
 .pilates-footer {
